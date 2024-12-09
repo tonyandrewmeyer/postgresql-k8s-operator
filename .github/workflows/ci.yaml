@@ -17,6 +17,7 @@ on:
       - '.github/workflows/sync_docs.yaml'
   # Triggered on push to branch "main" by .github/workflows/release.yaml
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   lint:
