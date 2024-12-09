@@ -22,7 +22,7 @@ on:
 jobs:
   build:
     name: Build charm
-    uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/build_charm.yaml@v21.0.1
+    uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/build_charm.yaml
     with:
       cache: true
 
@@ -48,7 +48,7 @@ jobs:
       - lint
       - unit-test
       - build
-    uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/integration_test_charm.yaml@v21.0.1
+    uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/integration_test_charm.yaml
     with:
       artifact-prefix: ${{ needs.build.outputs.artifact-prefix }}
       architecture: ${{ matrix.architecture }}
