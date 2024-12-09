@@ -45,8 +45,6 @@ jobs:
             architecture: arm64
     name: Integration | ${{ matrix.juju.agent }} | ${{ matrix.architecture }}
     needs:
-      - lint
-      - unit-test
       - build
     uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/integration_test_charm.yaml@main
     with:
