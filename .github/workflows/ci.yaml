@@ -7,22 +7,12 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  pull_request:
-    paths-ignore:
-      - '.gitignore'
-      - '.jujuignore'
-      - 'LICENSE'
-      - '**.md'
-      - .github/renovate.json5
-      - '.github/workflows/sync_docs.yaml'
-  # Triggered on push to branch "main" by .github/workflows/release.yaml
-  workflow_call:
   workflow_dispatch:
 
 jobs:
   build:
     name: Build charm
-    uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/build_charm.yaml@main
+    uses: build_charm.yaml
     with:
       cache: true
 
