@@ -2,19 +2,12 @@
 # See LICENSE file for licensing details.
 name: Tests
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build charm
-    uses: build_charm.yaml
-    with:
-      cache: true
+    uses: ./.github/workflows/build-charm.yaml
 
   integration-test:
     strategy:
@@ -53,5 +46,3 @@ jobs:
           "GCP_ACCESS_KEY": "${{ secrets.GCP_ACCESS_KEY }}",
           "GCP_SECRET_KEY": "${{ secrets.GCP_SECRET_KEY }}",
         }
-    permissions:
-      contents: write  # Needed for Allure Report beta
