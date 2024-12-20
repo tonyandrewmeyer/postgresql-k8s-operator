@@ -7,7 +7,23 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build_charm.yaml
+    name: Build charm
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Setup LXD
+        uses: canonical/setup-lxd@main
+
+      - name: Install charmcraft
+        run: sudo snap install charmcraft --classic
+
+      - name: Pack charm
+        run: charmcraft pack -v
+
+      - name: tox -e integration
+        run: tox -e integration
 
   integration-test:
     strategy:
@@ -27,8 +43,6 @@ jobs:
               allure_on_amd64: true
             architecture: arm64
     name: Integration | ${{ matrix.juju.agent }} | ${{ matrix.architecture }}
-    needs:
-      - build
     uses: tonyandrewmeyer/data-platform-workflows/.github/workflows/integration_test_charm.yaml@main
     with:
       artifact-prefix: ${{ needs.build.outputs.artifact-prefix }}
