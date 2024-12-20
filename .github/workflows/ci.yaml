@@ -22,6 +22,9 @@ jobs:
       - name: Pack charm
         run: charmcraft pack -v
 
+      - name: conceirge
+        run: sudo snap install --classic concierge && sudo concierge prepare -p dev
+
       - name: tox -e integration
         run: tox -e integration
 
