@@ -20,6 +20,7 @@ parts:
     plugin: nil
     build-packages:
       - curl
+      - git
     override-build: |
       # Use environment variable instead of `--break-system-packages` to avoid failing on older
       # versions of pip that do not recognize `--break-system-packages`
@@ -57,6 +58,7 @@ parts:
       - libssl-dev  # Needed to build Python dependencies with Rust from source
       - pkg-config  # Needed to build Python dependencies with Rust from source
       - libpq-dev
+      - git
     override-build: |
       # Workaround for https://github.com/canonical/charmcraft/issues/2068
       # rustup used to install rustc and cargo, which are needed to build Python dependencies with Rust from source
