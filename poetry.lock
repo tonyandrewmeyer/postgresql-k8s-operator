@@ -1301,15 +1301,13 @@ files = [
 
 [[package]]
 name = "ops"
-version = "2.18.0"
+version = "2.19.0.dev0"
 description = "The Python library behind great charms"
 optional = false
 python-versions = ">=3.8"
 groups = ["main", "charm-libs"]
-files = [
-    {file = "ops-2.18.0-py3-none-any.whl", hash = "sha256:19aa71d06bdeac1af76ab31de3aab5ec828a92796ff157141c3c324b588cfaaf"},
-    {file = "ops-2.18.0.tar.gz", hash = "sha256:4ef43553097e1d27af6f1a1906a8dbcbac379f316124e40f7638923ed992b1ad"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 PyYAML = "==6.*"
@@ -1318,6 +1316,12 @@ websocket-client = "==1.*"
 [package.extras]
 docs = ["canonical-sphinx-extensions", "furo", "linkify-it-py", "myst-parser", "pyspelling", "sphinx (>=8.0.0,<8.1.0)", "sphinx-autobuild", "sphinx-copybutton", "sphinx-design", "sphinx-notfound-page", "sphinx-tabs", "sphinxcontrib-jquery", "sphinxext-opengraph"]
 testing = ["ops-scenario (>=7.0.5,<8)"]
+
+[package.source]
+type = "git"
+url = "https://github.com/tonyandrewmeyer/operator.git"
+reference = "fix-defer-dedupe-issues"
+resolved_reference = "8925b1f6deb2d7c7590a6c6658069b310d1abada"
 
 [[package]]
 name = "packaging"
@@ -2603,4 +2607,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "35e3b6d756d3b3f7ca5ffa8654b3d2e3a0357b8e47d98ed617fa4c34439c095d"
+content-hash = "35226a5971e9e9c4d2219fb9cbec6fe159617fea4860a715ee0ee89b7bf74f81"

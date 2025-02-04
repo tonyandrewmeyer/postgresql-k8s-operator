@@ -7,7 +7,7 @@ requires-poetry = ">=2.0.0"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-ops = "^2.18.0"
+ops = { git = "https://github.com/tonyandrewmeyer/operator.git", branch = "fix-defer-dedupe-issues" }
 boto3 = "^1.35.70"
 pgconnstr = "^1.0.1"
 requests = "^2.32.3"
