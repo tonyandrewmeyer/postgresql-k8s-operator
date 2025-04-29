@@ -17,6 +17,7 @@ on:
       - '.github/workflows/sync_docs.yaml'
   schedule:
     - cron: '53 0 * * *'  # Daily at 00:53 UTC
+  workflow_dispatch:
   # Triggered on push to branch "main" by .github/workflows/release.yaml
   workflow_call:
     outputs:
